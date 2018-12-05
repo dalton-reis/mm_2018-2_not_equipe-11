@@ -5,7 +5,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="./js/hammer.js"></script>
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- Custom fonts for this template -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- Plugin CSS -->
+<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template -->
+<link href="css/freelancer.min.css" rel="stylesheet">
 	<head>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
 
@@ -88,7 +99,7 @@
 		</style>
 	</head>
 
-	<body>
+	<body class="bg-primary">
 		<div class="container">
 			<div class="row text-center">
 				<div class="col" >
@@ -120,25 +131,78 @@
 			</div>
 		
 
-			<div class="row">
-				<div class="row text-center">
-					<div class="col">
-						<h3>Ainda não conseguiu encontra a fórmula?</h3>
+			<div class="container-mensagem">
+					<div class="row text-center">
+						<div id="mensagem-resultado" class="col">
+						</div>
 					</div>
-				</div>
 			</div>
-			<div class="row ">
-				<div class="row text-center">
-					<div class="col">
-						<button>Próxima</button>
+			<div class="container-botao">
+					<div class="row text-center">
+						<div id="botao-proximo" class="col">
+						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 
 	
 		<script>
+			var divMensagem = document.getElementById("mensagem-resultado");
+			var divBotaoProximo = document.getElementById("botao-proximo");
+			var mensagemSucesso = "<h3 class='mensagem-sucesso'>Muito Bem! Corte correto!</h3>";
+			var botao = '<button type="button" class="btn btn-success" onclick="goToNext()">Próxima página</button>'
+			var canvas = document.getElementById("retangulo");			
+			var ctx = canvas.getContext('2d');
+
+			var valorPontoX;
+			var valorPontoY;
+			quantidadeClique = 1;
+
+			function goToNext(){
+				window.location.href = "./page04.html";
+			}
+
 			
+			retangulo.onmousedown = function (ev) {
+			
+				valorPontoY = ev.clientY;
+			
+			}
+			
+			retangulo.onmouseup = function (ev) {
+			
+				valorPontoX = ev.clientX;
+				desenharCorte();
+			}
+
+			function desenharCorte(){
+				if(valorPontoY >= 100 && valorPontoY <= 150){
+					if(valorPontoX >= 1100 && valorPontoX <= 1130){
+						ctx.clearRect(0,0,600,400);
+						montarTriangulosCortados();
+						divMensagem.innerHTML = "";
+						divMensagem.innerHTML += mensagemSucesso;
+						divBotaoProximo.innerHTML = "";
+						divBotaoProximo.innerHTML += botao;
+					}
+				}
+
+
+			}
+
+			function montarTriangulosCortados() {
+					ctx.beginPath();
+				    ctx.moveTo(0,0);
+				    ctx.lineTo(0,400);
+				    ctx.lineTo(600,400);
+				    ctx.fill();
+
+					ctx.beginPath();
+				    ctx.moveTo(2,0);
+				    ctx.lineTo(600,0);
+				    ctx.lineTo(600,398);
+				    ctx.fill();
+			}
 
 			function montarTriangulo() {
 		         	canvas = document.getElementById("trianguloRetangulo");
@@ -155,18 +219,14 @@
 			}
 
 			function montarRetangulo() {
-		         	canvas = document.getElementById("retangulo");
-		              
-		            if (canvas.getContext){
-				    var ctx = canvas.getContext('2d');
-
-				    ctx.beginPath();
+		         	
+		            ctx.beginPath();
 				    ctx.moveTo(0,0);
 				    ctx.lineTo(0,400);
 				    ctx.lineTo(600,400);
 				    ctx.lineTo(600,0);
 				    ctx.fill();
-				  }
+				  
 			}
 
 			window.onload=function(){ 
@@ -185,7 +245,19 @@
 					});
 				}
 		</script>
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+	<!-- Plugin JavaScript -->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+	<!-- Contact Form JavaScript -->
+	<script src="js/jqBootstrapValidation.js"></script>
+	<script src="js/contact_me.js"></script>
+
+	<!-- Custom scripts for this template -->
+	<script src="js/freelancer.min.js"></script>
 	</body>
 
 </html>

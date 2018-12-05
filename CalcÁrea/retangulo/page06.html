@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+		<meta charset="utf-8">
+
+		<title>CalcÁrea</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		
+		<style>
+			.container-titulo{
+				margin-top: 50px;
+			}
+
+			.container-subtitulo{
+				margin-top: 50px;
+			}
+
+			.container-quadrados{
+				margin-top: 50px;
+			}
+
+			.quadrinho{
+				width: 15px;
+				height: 15px;
+				border-style: solid;
+				border-width: 5px;
+				border-color: #42d692;
+				padding: 10px;
+			}
+
+			div .quadrinho:hover{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+			}
+
+			.quadrinho-selecionado{
+				background-color: red;
+			}
+
+			.container-botao{
+				padding-top: 50px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="container">
+			<div class="container-titulo">
+				<div class="row">
+					<div class="col">
+						<h3>* Podemos considerar então que: há quatro tiras de dez centímetros</h3>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-quadrados">
+				<div class="row">
+					<div class="col">
+						<p class="text-center">10</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p class="text-center">h (altura)</p>
+					</div>
+					<div class="col">
+						<div class="row">
+							<div id="l1-c1" class="col quadrinho"></div>
+							<div id="l1-c2" class="col quadrinho"></div>
+							<div id="l1-c3" class="col quadrinho"></div>
+							<div id="l1-c4" class="col quadrinho"></div>
+							<div id="l1-c5" class="col quadrinho"></div>
+							<div id="l1-c6" class="col quadrinho"></div>
+							<div id="l1-c7" class="col quadrinho"></div>
+							<div id="l1-c8" class="col quadrinho"></div>
+							<div id="l1-c9" class="col quadrinho"></div>
+							<div id="l1-c10" class="col quadrinho"></div>
+						</div>
+						<div class="row">
+							<div id="l2-c1" class="col quadrinho"></div>
+							<div id="l2-c2" class="col quadrinho"></div>
+							<div id="l2-c3" class="col quadrinho"></div>
+							<div id="l2-c4" class="col quadrinho"></div>
+							<div id="l2-c5" class="col quadrinho"></div>
+							<div id="l2-c6" class="col quadrinho"></div>
+							<div id="l2-c7" class="col quadrinho"></div>
+							<div id="l2-c8" class="col quadrinho"></div>
+							<div id="l2-c9" class="col quadrinho"></div>
+							<div id="l2-c10" class="col quadrinho"></div>
+						</div>
+						<div class="row">
+							<div id="l3-c1" class="col quadrinho"></div>
+							<div id="l3-c2" class="col quadrinho"></div>
+							<div id="l3-c3" class="col quadrinho"></div>
+							<div id="l3-c4" class="col quadrinho"></div>
+							<div id="l3-c5" class="col quadrinho"></div>
+							<div id="l3-c6" class="col quadrinho"></div>
+							<div id="l3-c7" class="col quadrinho"></div>
+							<div id="l3-c8" class="col quadrinho"></div>
+							<div id="l3-c9" class="col quadrinho"></div>
+							<div id="l3-c10" class="col quadrinho"></div>
+						</div>
+						<div class="row">
+							<div id="l4-c1" class="col quadrinho"></div>
+							<div id="l4-c2" class="col quadrinho"></div>
+							<div id="l4-c3" class="col quadrinho"></div>
+							<div id="l4-c4" class="col quadrinho"></div>
+							<div id="l4-c5" class="col quadrinho"></div>
+							<div id="l4-c6" class="col quadrinho"></div>
+							<div id="l4-c7" class="col quadrinho"></div>
+							<div id="l4-c8" class="col quadrinho"></div>
+							<div id="l4-c9" class="col quadrinho"></div>
+							<div id="l4-c10" class="col quadrinho"></div>
+						</div>
+					</div>
+					<div class="col">
+						<p class="text-center">4</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p class="text-center">b (base)</p>
+					</div>
+				</div>
+			</div>
+			<div class="container-botao">
+				<div class="row text-center">
+					<div id="botao-proximo" class="col">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="./js/hammer.js"></script>
+
+		<script>
+			var divBotaoProximo = document.getElementById("botao-proximo");
+			var botao = '<button type="button" class="btn btn-success" onclick="goToNext()">Próxima página</button>';
+
+			function goToNext(){
+				window.location.href = "./page07.html";
+			}
+
+			window.onload = function(){
+				setTimeout(teste, 5000);
+			};
+
+			function teste(){
+				divBotaoProximo.innerHTML += botao;
+			}
+		</script>
+
+	</body>
+
+</html>

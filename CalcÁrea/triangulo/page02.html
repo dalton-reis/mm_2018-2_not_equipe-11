@@ -4,7 +4,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="./js/hammer.js"></script>
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- Custom fonts for this template -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- Plugin CSS -->
+<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template -->
+<link href="css/freelancer.min.css" rel="stylesheet">
 
 	<head>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
@@ -13,6 +24,16 @@
 
 
 		<style>
+			html, body {
+			    
+			    margin: 0;
+			}
+
+			body {
+			    -webkit-perspective: 500;
+			    -moz-perspective: 500;
+			    perspective: 500;
+			}
 			.container{
 			    margin-top: 50px;
 			}
@@ -60,7 +81,7 @@
 		</style>
 	</head>
 
-	<body>
+	<body class="bg-primary">
 		<div class="container">
 			<div class="row text-center">
 				<div class="col" >
@@ -146,11 +167,13 @@
 			</div>
 			<div class="container-calculo">
 				<div class="row text-center">
-					<div class="col-md-10">
+					<div class="col">
 						<h3>Defina a equação</h3>
 					</div>
 				</div>
 				<div class="row">
+					<div class="col-3">
+					</div>
 					<div class="col-2" style="z-index:-1;">
 						<input id="numero1" style="height:70px" type="text">
 						<p class="text-center">Símbolo 1</p>
@@ -168,19 +191,17 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="row text-center">
-					<div class="col">
-						<h3>Ainda não conseguiu encontra a fórmula?</h3>
+			<div class="container-mensagem">
+					<div class="row text-center">
+						<div id="mensagem-resultado" class="col">
+						</div>
 					</div>
-				</div>
 			</div>
-			<div class="row ">
-				<div class="row text-center">
-					<div class="col">
-						<button>Próxima</button>
+			<div class="container-botao">
+					<div class="row text-center">
+						<div id="botao-proximo" class="col">
+						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 
@@ -188,8 +209,25 @@
 		<!--<script src="https://hammerjs.github.io/dist/hammer.js"></script>-->
 
 		<script>
+			var divMensagem = document.getElementById("mensagem-resultado");
+			var divBotaoProximo = document.getElementById("botao-proximo");
+			var mensagemErro = "<h3 class='mensagem-erro'>Você clicou na imagem errada</h3>";
+			var mensagemSucesso = "<h3 class='mensagem-sucesso'>Fórmula correta!</h3>";
+			var mensagemSucessoFormula = "<h3 class='mensagem-sucesso'>Paranbéns! Você descobriu a fórmula!</h3>";
 			
+			var botao = '<button type="button" class="btn btn-success" onclick="goToNextFigura()">Próxima figura</button>';
+			var botaoAtencao = '<button type="button" class="btn btn-warning" onclick="goToNext()">Próxima página</button>';
+			
+			var mensagemSucesso = "<h3 class='mensagem-atencao'>Não sabe a respota? Vá para a próxima página</h3>";
+			
+			
+			function goToNext(){
+				window.location.href = "./page03.html";
+			}
 
+			function goToNextFigura(){
+				window.location.href = "../losango/page01.html";
+			}
 			function montarTriangulo() {
 		         	canvas = document.getElementById("trianguloRetangulo");
 		              
@@ -209,17 +247,20 @@
 				var multi = document.getElementById("blocoMultiplica");
 				var altura = document.getElementById("blocoAltura");
 
-				if((parseInt(base.style.left) >= 0 &&  parseInt(base.style.left) <= 28) && 
-					(parseInt(base.style.top) >= 285 &&  parseInt(base.style.top) <= 312)){
-					if((parseInt(multi.style.left) >= -765 &&  parseInt(multi.style.left) <= -735) && 
+				if((parseInt(base.style.left) >= 290 &&  parseInt(base.style.left) <= 319) && 
+					(parseInt(base.style.top) >= 285 &&  parseInt(base.style.top) <= 320)){
+					if((parseInt(multi.style.left) >= -475 &&  parseInt(multi.style.left) <= -420) && 
 						(parseInt(multi.style.top) >= 190 &&  parseInt(multi.style.top) <= 215)){
-						if((parseInt(altura.style.left) >= 380 &&  parseInt(altura.style.left) <= 408) && 
+						if((parseInt(altura.style.left) >= 665 &&  parseInt(altura.style.left) <= 690) && 
 							(parseInt(altura.style.top) >= 240 &&  parseInt(altura.style.top) <= 265)){
-							window.location = "page03.html";
+								console.log("Fórmula correta!");
+								divMensagem.innerHTML = "";
+								divMensagem.innerHTML += mensagemSucessoFormula;
+								divBotaoProximo.innerHTML = "";
+								divBotaoProximo.innerHTML += botao;
 						}
-					}
-						
-				}
+					}						
+				}				
 
 			}
 
@@ -238,7 +279,15 @@
 				  }
 			}
 
+			
+
 			window.onload=function(){ 
+				    setTimeout(function() {
+						divMensagem.innerHTML = "";
+						divMensagem.innerHTML += mensagemSucesso;
+						divBotaoProximo.innerHTML = "";
+						divBotaoProximo.innerHTML += botaoAtencao;
+					}, 30000);
 			       	montarRetangulo();
 			       	montarTriangulo();
 
@@ -316,7 +365,19 @@
 			};
 
 		</script>
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+		<!-- Plugin JavaScript -->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+		<!-- Contact Form JavaScript -->
+		<script src="js/jqBootstrapValidation.js"></script>
+		<script src="js/contact_me.js"></script>
+
+		<!-- Custom scripts for this template -->
+		<script src="js/freelancer.min.js"></script>
 	</body>
 
 </html>

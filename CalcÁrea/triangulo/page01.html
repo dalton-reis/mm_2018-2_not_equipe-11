@@ -5,6 +5,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="./js/hammer.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
 
 	<head>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
@@ -14,8 +27,7 @@
 
 		
 		<style>
-			html, body {
-			    overflow: hidden;
+			html, body {			   
 			    margin: 0;
 			}
 
@@ -49,21 +61,46 @@
 			    padding-bottom: 100px;
 			}
 
-			.figuras:hover{
+			/* .figuras:hover{
 				border-style: solid;
 				border-width: 5px;
 				border-color: red;
+			} */
+
+			.container-mensagem{
+				padding-top: 50px;
 			}
+
+			.container-botao{
+				padding-top: 50px;
+			}
+
+			.mensagem-erro{
+				color: red;
+			}
+
+			.mensagem-sucesso{
+				color: green;
+			}
+
+			.container-mensagem{
+				padding-top: 50px;
+			}
+
+			.container-botao{
+				padding-top: 50px;
+			}
+
 
 		</style>
 
 	</head>
 
-	<body>
+	<body class="bg-primary">
 		
 		<div id="log"></div>
 
-		<div class="container">
+		<div class="container portfolio ">
 			<div class="row text-center">
 				<div class="col">
 					<h4>Todas são consideradas triângulos por respeitarem as definições, mas qual deles é um triângulo retângulo? (clique sobre a figura)</h4>
@@ -89,12 +126,18 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				 <div id="alertErro" class="alert alert-danger fade-in" role="alert">
-			        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-			        Clicou errado
-			    </div>
-			</div> 
+			<div class="container-mensagem">
+				<div class="row text-center">
+					<div id="mensagem-resultado" class="col">
+					</div>
+				</div>
+			</div>
+			<div class="container-botao">
+				<div class="row text-center">
+					<div id="botao-proximo" class="col">
+					</div>
+				</div>
+			</div>
 		</div>
 
 
@@ -103,17 +146,37 @@
 			document.getElementById("canvasTriangulo").addEventListener("click", onCanvasTriangulo);
 			document.getElementById("canvasTriangulo2").addEventListener("click", onCanvasTriangulo2);
 			document.getElementById("canvasTriangulo3").addEventListener("click", onCanvasTriangulo3);
+
+			var divMensagem = document.getElementById("mensagem-resultado");
+			var divBotaoProximo = document.getElementById("botao-proximo");
+			var mensagemErro = "<h3 class='mensagem-erro'>Você clicou na imagem errada</h3>";
+			var mensagemSucesso = "<h3 class='mensagem-sucesso'>Você clicou na imagem certa</h3>";
+			var botao = '<button type="button" class="btn btn-success" onclick="goToNext()">Próxima página</button>';
 			
+			function goToNext(){
+				window.location.href = "./page02.html";
+			}
+
 			function onCanvasTriangulo(){
-				$(".alert").alert("show");
+				console.log("Clicou errado");
+				divMensagem.innerHTML = "";
+				divMensagem.innerHTML += mensagemErro;
+				divBotaoProximo.innerHTML = "";
 			}
 
 			function onCanvasTriangulo2(){
-				$(".alert").alert("close");
+				console.log("Clicou errado");
+				divMensagem.innerHTML = "";
+				divMensagem.innerHTML += mensagemErro;
+				divBotaoProximo.innerHTML = "";
 			}
 
 			function onCanvasTriangulo3(){
-				window.location = "page02.html";
+				console.log("Clicou certo");
+				divMensagem.innerHTML = "";
+				divMensagem.innerHTML += mensagemSucesso;
+				divBotaoProximo.innerHTML = "";
+				divBotaoProximo.innerHTML += botao;
 			}
 
 		
@@ -122,7 +185,6 @@
 		              
 		            if (canvas.getContext){
 				    var ctx = canvas.getContext('2d');
-
 				    ctx.beginPath();
 				    ctx.moveTo(0,0);
 				    ctx.lineTo(0,150);
@@ -136,7 +198,6 @@
 		              
 		            if (canvas.getContext){
 				    var ctx = canvas.getContext('2d');
-
 				    ctx.beginPath();
 				    ctx.moveTo(0,150);
 				    ctx.lineTo(150,150);
@@ -150,7 +211,6 @@
 		              
 		            if (canvas.getContext){
 				    var ctx = canvas.getContext('2d');
-
 				    ctx.beginPath();
 				    ctx.moveTo(0,150);
 				    ctx.lineTo(150,150);
@@ -166,7 +226,19 @@
 			       montarTriangulo3();
 			};
 		</script>
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+		<!-- Plugin JavaScript -->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+		<!-- Contact Form JavaScript -->
+		<script src="js/jqBootstrapValidation.js"></script>
+		<script src="js/contact_me.js"></script>
+
+		<!-- Custom scripts for this template -->
+		<script src="js/freelancer.min.js"></script>
 	</body>
 
 </html>

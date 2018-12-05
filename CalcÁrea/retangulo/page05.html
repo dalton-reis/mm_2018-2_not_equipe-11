@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+		<meta charset="utf-8">
+
+		<title>CalcÁrea</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		
+		<style>
+			.container-titulo{
+				margin-top: 50px;
+			}
+
+			.container-subtitulo{
+				margin-top: 50px;
+			}
+
+			.container-quadrados{
+				margin-top: 50px;
+			}
+
+			.quadrinho{
+				width: 15px;
+				height: 15px;
+				border-style: solid;
+				border-top-width: 5px;
+				border-left-width: 5px;
+				border-color: #42d692;
+				padding: 10px;
+			}
+
+			.quadrinho-l1{
+				border-top-width: 5px;
+				border-top-style: solid;
+				border-top-color: #42d692;
+				border-left-width: 5px;
+				border-left-style: solid;
+				border-left-color: #42d692;
+				background-color: red;
+			}
+
+			.quadrinho-l2{
+				border-left-width: 5px;
+				border-left-style: solid;
+				border-left-color: #42d692;
+				background-color: red;
+			}
+
+			.quadrinho-l3{
+				border-left-width: 5px;
+				border-left-style: solid;
+				border-left-color: #42d692;
+				background-color: red;
+			}
+
+			.quadrinho-l4{
+				border-bottom-width: 5px;
+				border-bottom-style: solid;
+				border-bottom-color: #42d692;
+				border-left-width: 5px;
+				border-left-style: solid;
+				border-left-color: #42d692;
+				background-color: red;
+			}
+
+			.quadrinho-l1-right{
+				border-top-width: 5px;
+				border-top-style: solid;
+				border-top-color: #42d692;
+				border-right-width: 5px;
+				border-right-style: solid;
+				border-right-color: #42d692;
+				border-left-width: 5px;
+				border-left-style: solid;
+				border-left-color: #42d692;
+				background-color: red;
+			}
+
+			.quadrinho-l2-right{
+				border-right-width: 5px;
+				border-right-style: solid;
+				border-right-color: #42d692;
+				border-left-width: 5px;
+				border-left-style: solid;
+				border-left-color: #42d692;
+				background-color: red;
+			}
+
+			.quadrinho-l3-right{
+				border-right-width: 5px;
+				border-right-style: solid;
+				border-right-color: #42d692;
+				border-left-width: 5px;
+				border-left-style: solid;
+				border-left-color: #42d692;
+				background-color: red;
+			}
+
+			.quadrinho-l4-right{
+				border-bottom-width: 5px;
+				border-bottom-style: solid;
+				border-bottom-color: #42d692;
+				border-right-width: 5px;
+				border-right-style: solid;
+				border-right-color: #42d692;
+				border-left-width: 5px;
+				border-left-style: solid;
+				border-left-color: #42d692;
+				background-color: red;
+			}
+
+			div .quadrinho:hover{
+				border-style: solid;
+				/*border-width: 5px;*/
+				border-color: red;
+			}
+
+			.quadrinho-selecionado{
+				background-color: red;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="container">
+			<div class="container-titulo">
+				<div class="row">
+					<div class="col">
+						<h3>Olhe novamente o retângulo de 10x4, aquele cuja área que você descobriu que era 40, através da contagem dos quadradinhos...</h3>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-subtitulo">
+				<div class="row">
+					<div class="col">
+						<h4>* E como você dividiria esse retângulo em dez tiras de um centímetro?</h4>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-quadrados">
+				<div class="row">
+					<div id="l1-c1" class="col quadrinho"></div>
+					<div id="l1-c2" class="col quadrinho"></div>
+					<div id="l1-c3" class="col quadrinho"></div>
+					<div id="l1-c4" class="col quadrinho"></div>
+					<div id="l1-c5" class="col quadrinho"></div>
+					<div id="l1-c6" class="col quadrinho"></div>
+					<div id="l1-c7" class="col quadrinho"></div>
+					<div id="l1-c8" class="col quadrinho"></div>
+					<div id="l1-c9" class="col quadrinho"></div>
+					<div id="l1-c10" class="col quadrinho"></div>
+				</div>
+				<div class="row">
+					<div id="l2-c1" class="col quadrinho"></div>
+					<div id="l2-c2" class="col quadrinho"></div>
+					<div id="l2-c3" class="col quadrinho"></div>
+					<div id="l2-c4" class="col quadrinho"></div>
+					<div id="l2-c5" class="col quadrinho"></div>
+					<div id="l2-c6" class="col quadrinho"></div>
+					<div id="l2-c7" class="col quadrinho"></div>
+					<div id="l2-c8" class="col quadrinho"></div>
+					<div id="l2-c9" class="col quadrinho"></div>
+					<div id="l2-c10" class="col quadrinho"></div>
+				</div>
+				<div class="row">
+					<div id="l3-c1" class="col quadrinho"></div>
+					<div id="l3-c2" class="col quadrinho"></div>
+					<div id="l3-c3" class="col quadrinho"></div>
+					<div id="l3-c4" class="col quadrinho"></div>
+					<div id="l3-c5" class="col quadrinho"></div>
+					<div id="l3-c6" class="col quadrinho"></div>
+					<div id="l3-c7" class="col quadrinho"></div>
+					<div id="l3-c8" class="col quadrinho"></div>
+					<div id="l3-c9" class="col quadrinho"></div>
+					<div id="l3-c10" class="col quadrinho"></div>
+				</div>
+				<div class="row">
+					<div id="l4-c1" class="col quadrinho"></div>
+					<div id="l4-c2" class="col quadrinho"></div>
+					<div id="l4-c3" class="col quadrinho"></div>
+					<div id="l4-c4" class="col quadrinho"></div>
+					<div id="l4-c5" class="col quadrinho"></div>
+					<div id="l4-c6" class="col quadrinho"></div>
+					<div id="l4-c7" class="col quadrinho"></div>
+					<div id="l4-c8" class="col quadrinho"></div>
+					<div id="l4-c9" class="col quadrinho"></div>
+					<div id="l4-c10" class="col quadrinho"></div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="./js/hammer.js"></script>
+
+		<script>
+
+			document.getElementById("l1-c1").addEventListener("click", onl1c1Click);
+			document.getElementById("l1-c2").addEventListener("click", onl1c2Click);
+			document.getElementById("l1-c3").addEventListener("click", onl1c3Click);
+			document.getElementById("l1-c4").addEventListener("click", onl1c4Click);
+			document.getElementById("l1-c5").addEventListener("click", onl1c5Click);
+			document.getElementById("l1-c6").addEventListener("click", onl1c6Click);
+			document.getElementById("l1-c7").addEventListener("click", onl1c7Click);
+			document.getElementById("l1-c8").addEventListener("click", onl1c8Click);
+			document.getElementById("l1-c9").addEventListener("click", onl1c9Click);
+			document.getElementById("l1-c10").addEventListener("click", onl1c10Click);
+
+			document.getElementById("l2-c1").addEventListener("click", onl2c1Click);
+			document.getElementById("l2-c2").addEventListener("click", onl2c2Click);
+			document.getElementById("l2-c3").addEventListener("click", onl2c3Click);
+			document.getElementById("l2-c4").addEventListener("click", onl2c4Click);
+			document.getElementById("l2-c5").addEventListener("click", onl2c5Click);
+			document.getElementById("l2-c6").addEventListener("click", onl2c6Click);
+			document.getElementById("l2-c7").addEventListener("click", onl2c7Click);
+			document.getElementById("l2-c8").addEventListener("click", onl2c8Click);
+			document.getElementById("l2-c9").addEventListener("click", onl2c9Click);
+			document.getElementById("l2-c10").addEventListener("click", onl2c10Click);
+
+			document.getElementById("l3-c1").addEventListener("click", onl3c1Click);
+			document.getElementById("l3-c2").addEventListener("click", onl3c2Click);
+			document.getElementById("l3-c3").addEventListener("click", onl3c3Click);
+			document.getElementById("l3-c4").addEventListener("click", onl3c4Click);
+			document.getElementById("l3-c5").addEventListener("click", onl3c5Click);
+			document.getElementById("l3-c6").addEventListener("click", onl3c6Click);
+			document.getElementById("l3-c7").addEventListener("click", onl3c7Click);
+			document.getElementById("l3-c8").addEventListener("click", onl3c8Click);
+			document.getElementById("l3-c9").addEventListener("click", onl3c9Click);
+			document.getElementById("l3-c10").addEventListener("click", onl3c10Click);
+
+			document.getElementById("l4-c1").addEventListener("click", onl4c1Click);
+			document.getElementById("l4-c2").addEventListener("click", onl4c2Click);
+			document.getElementById("l4-c3").addEventListener("click", onl4c3Click);
+			document.getElementById("l4-c4").addEventListener("click", onl4c4Click);
+			document.getElementById("l4-c5").addEventListener("click", onl4c5Click);
+			document.getElementById("l4-c6").addEventListener("click", onl4c6Click);
+			document.getElementById("l4-c7").addEventListener("click", onl4c7Click);
+			document.getElementById("l4-c8").addEventListener("click", onl4c8Click);
+			document.getElementById("l4-c9").addEventListener("click", onl4c9Click);
+			document.getElementById("l4-c10").addEventListener("click", onl4c10Click);
+
+			var totalSelecionado = 0;
+
+			var divBotaoProximo = document.getElementById("botao-proximo");
+			var botao = '<button type="button" class="btn btn-success" onclick="goToNext()">Próxima página</button>';
+
+			function goToNext(){
+				window.location.href = "./page05.html";
+			}
+
+			function onl1c1Click(){
+				if (this.classList.contains("quadrinho-l1")){
+					document.getElementById("l1-c1").classList.remove("quadrinho-l1");
+					document.getElementById("l1-c1").classList.add("quadrinho");
+					document.getElementById("l2-c1").classList.remove("quadrinho-l2");
+					document.getElementById("l2-c1").classList.add("quadrinho");
+					document.getElementById("l3-c1").classList.remove("quadrinho-l3");
+					document.getElementById("l3-c1").classList.add("quadrinho");
+					document.getElementById("l4-c1").classList.remove("quadrinho-l4");
+					document.getElementById("l4-c1").classList.add("quadrinho");
+				} else {
+					document.getElementById("l1-c1").classList.remove("quadrinho");
+					document.getElementById("l1-c1").classList.add("quadrinho-l1");
+					document.getElementById("l2-c1").classList.remove("quadrinho");
+					document.getElementById("l2-c1").classList.add("quadrinho-l2");
+					document.getElementById("l3-c1").classList.remove("quadrinho");
+					document.getElementById("l3-c1").classList.add("quadrinho-l3");
+					document.getElementById("l4-c1").classList.remove("quadrinho");
+					document.getElementById("l4-c1").classList.add("quadrinho-l4");
+				}
+			}
+
+			function onl1c2Click(){
+				if (this.classList.contains("quadrinho-l1")){
+					document.getElementById("l1-c2").classList.remove("quadrinho-l1");
+					document.getElementById("l1-c2").classList.add("quadrinho");
+					document.getElementById("l2-c2").classList.remove("quadrinho-l2");
+					document.getElementById("l2-c2").classList.add("quadrinho");
+					document.getElementById("l3-c2").classList.remove("quadrinho-l3");
+					document.getElementById("l3-c2").classList.add("quadrinho");
+					document.getElementById("l4-c2").classList.remove("quadrinho-l4");
+					document.getElementById("l4-c2").classList.add("quadrinho");
+				} else {
+					document.getElementById("l1-c2").classList.remove("quadrinho");
+					document.getElementById("l1-c2").classList.add("quadrinho-l1");
+					document.getElementById("l2-c2").classList.remove("quadrinho");
+					document.getElementById("l2-c2").classList.add("quadrinho-l2");
+					document.getElementById("l3-c2").classList.remove("quadrinho");
+					document.getElementById("l3-c2").classList.add("quadrinho-l3");
+					document.getElementById("l4-c2").classList.remove("quadrinho");
+					document.getElementById("l4-c2").classList.add("quadrinho-l4");
+				}
+			}
+
+			function onl1c3Click(){
+				if (this.classList.contains("quadrinho-l1")){
+					document.getElementById("l1-c3").classList.remove("quadrinho-l1");
+					document.getElementById("l1-c3").classList.add("quadrinho");
+					document.getElementById("l2-c3").classList.remove("quadrinho-l2");
+					document.getElementById("l2-c3").classList.add("quadrinho");
+					document.getElementById("l3-c3").classList.remove("quadrinho-l3");
+					document.getElementById("l3-c3").classList.add("quadrinho");
+					document.getElementById("l4-c3").classList.remove("quadrinho-l4");
+					document.getElementById("l4-c3").classList.add("quadrinho");
+				} else {
+					document.getElementById("l1-c3").classList.remove("quadrinho");
+					document.getElementById("l1-c3").classList.add("quadrinho-l1");
+					document.getElementById("l2-c3").classList.remove("quadrinho");
+					document.getElementById("l2-c3").classList.add("quadrinho-l2");
+					document.getElementById("l3-c3").classList.remove("quadrinho");
+					document.getElementById("l3-c3").classList.add("quadrinho-l3");
+					document.getElementById("l4-c3").classList.remove("quadrinho");
+					document.getElementById("l4-c3").classList.add("quadrinho-l4");
+				}
+			}
+
+			function onl1c4Click(){
+				if (this.classList.contains("quadrinho-l1")){
+					document.getElementById("l1-c4").classList.remove("quadrinho-l1");
+					document.getElementById("l1-c4").classList.add("quadrinho");
+					document.getElementById("l2-c4").classList.remove("quadrinho-l2");
+					document.getElementById("l2-c4").classList.add("quadrinho");
+					document.getElementById("l3-c4").classList.remove("quadrinho-l3");
+					document.getElementById("l3-c4").classList.add("quadrinho");
+					document.getElementById("l4-c4").classList.remove("quadrinho-l4");
+					document.getElementById("l4-c4").classList.add("quadrinho");
+				} else {
+					document.getElementById("l1-c4").classList.remove("quadrinho");
+					document.getElementById("l1-c4").classList.add("quadrinho-l1");
+					document.getElementById("l2-c4").classList.remove("quadrinho");
+					document.getElementById("l2-c4").classList.add("quadrinho-l2");
+					document.getElementById("l3-c4").classList.remove("quadrinho");
+					document.getElementById("l3-c4").classList.add("quadrinho-l3");
+					document.getElementById("l4-c4").classList.remove("quadrinho");
+					document.getElementById("l4-c4").classList.add("quadrinho-l4");
+				}
+			}
+
+			function onl1c5Click(){
+				if (this.classList.contains("quadrinho-l1")){
+					document.getElementById("l1-c5").classList.remove("quadrinho-l1");
+					document.getElementById("l1-c5").classList.add("quadrinho");
+					document.getElementById("l2-c5").classList.remove("quadrinho-l2");
+					document.getElementById("l2-c5").classList.add("quadrinho");
+					document.getElementById("l3-c5").classList.remove("quadrinho-l3");
+					document.getElementById("l3-c5").classList.add("quadrinho");
+					document.getElementById("l4-c5").classList.remove("quadrinho-l4");
+					document.getElementById("l4-c5").classList.add("quadrinho");
+				} else {
+					document.getElementById("l1-c5").classList.remove("quadrinho");
+					document.getElementById("l1-c5").classList.add("quadrinho-l1");
+					document.getElementById("l2-c5").classList.remove("quadrinho");
+					document.getElementById("l2-c5").classList.add("quadrinho-l2");
+					document.getElementById("l3-c5").classList.remove("quadrinho");
+					document.getElementById("l3-c5").classList.add("quadrinho-l3");
+					document.getElementById("l4-c5").classList.remove("quadrinho");
+					document.getElementById("l4-c5").classList.add("quadrinho-l4");
+				}
+			}
+
+			function onl1c6Click(){
+				if (this.classList.contains("quadrinho-l1")){
+					document.getElementById("l1-c6").classList.remove("quadrinho-l1");
+					document.getElementById("l1-c6").classList.add("quadrinho");
+					document.getElementById("l2-c6").classList.remove("quadrinho-l2");
+					document.getElementById("l2-c6").classList.add("quadrinho");
+					document.getElementById("l3-c6").classList.remove("quadrinho-l3");
+					document.getElementById("l3-c6").classList.add("quadrinho");
+					document.getElementById("l4-c6").classList.remove("quadrinho-l4");
+					document.getElementById("l4-c6").classList.add("quadrinho");
+				} else {
+					document.getElementById("l1-c6").classList.remove("quadrinho");
+					document.getElementById("l1-c6").classList.add("quadrinho-l1");
+					document.getElementById("l2-c6").classList.remove("quadrinho");
+					document.getElementById("l2-c6").classList.add("quadrinho-l2");
+					document.getElementById("l3-c6").classList.remove("quadrinho");
+					document.getElementById("l3-c6").classList.add("quadrinho-l3");
+					document.getElementById("l4-c6").classList.remove("quadrinho");
+					document.getElementById("l4-c6").classList.add("quadrinho-l4");
+				}
+			}
+
+			function onl1c7Click(){
+				if (this.classList.contains("quadrinho-l1")){
+					document.getElementById("l1-c7").classList.remove("quadrinho-l1");
+					document.getElementById("l1-c7").classList.add("quadrinho");
+					document.getElementById("l2-c7").classList.remove("quadrinho-l2");
+					document.getElementById("l2-c7").classList.add("quadrinho");
+					document.getElementById("l3-c7").classList.remove("quadrinho-l3");
+					document.getElementById("l3-c7").classList.add("quadrinho");
+					document.getElementById("l4-c7").classList.remove("quadrinho-l4");
+					document.getElementById("l4-c7").classList.add("quadrinho");
+				} else {
+					document.getElementById("l1-c7").classList.remove("quadrinho");
+					document.getElementById("l1-c7").classList.add("quadrinho-l1");
+					document.getElementById("l2-c7").classList.remove("quadrinho");
+					document.getElementById("l2-c7").classList.add("quadrinho-l2");
+					document.getElementById("l3-c7").classList.remove("quadrinho");
+					document.getElementById("l3-c7").classList.add("quadrinho-l3");
+					document.getElementById("l4-c7").classList.remove("quadrinho");
+					document.getElementById("l4-c7").classList.add("quadrinho-l4");
+				}
+			}
+
+			function onl1c8Click(){
+				if (this.classList.contains("quadrinho-l1")){
+					document.getElementById("l1-c8").classList.remove("quadrinho-l1");
+					document.getElementById("l1-c8").classList.add("quadrinho");
+					document.getElementById("l2-c8").classList.remove("quadrinho-l2");
+					document.getElementById("l2-c8").classList.add("quadrinho");
+					document.getElementById("l3-c8").classList.remove("quadrinho-l3");
+					document.getElementById("l3-c8").classList.add("quadrinho");
+					document.getElementById("l4-c8").classList.remove("quadrinho-l4");
+					document.getElementById("l4-c8").classList.add("quadrinho");
+				} else {
+					document.getElementById("l1-c8").classList.remove("quadrinho");
+					document.getElementById("l1-c8").classList.add("quadrinho-l1");
+					document.getElementById("l2-c8").classList.remove("quadrinho");
+					document.getElementById("l2-c8").classList.add("quadrinho-l2");
+					document.getElementById("l3-c8").classList.remove("quadrinho");
+					document.getElementById("l3-c8").classList.add("quadrinho-l3");
+					document.getElementById("l4-c8").classList.remove("quadrinho");
+					document.getElementById("l4-c8").classList.add("quadrinho-l4");
+				}
+			}
+
+			function onl1c9Click(){
+				if (this.classList.contains("quadrinho-l1")){
+					document.getElementById("l1-c9").classList.remove("quadrinho-l1");
+					document.getElementById("l1-c9").classList.add("quadrinho");
+					document.getElementById("l2-c9").classList.remove("quadrinho-l2");
+					document.getElementById("l2-c9").classList.add("quadrinho");
+					document.getElementById("l3-c9").classList.remove("quadrinho-l3");
+					document.getElementById("l3-c9").classList.add("quadrinho");
+					document.getElementById("l4-c9").classList.remove("quadrinho-l4");
+					document.getElementById("l4-c9").classList.add("quadrinho");
+				} else {
+					document.getElementById("l1-c9").classList.remove("quadrinho");
+					document.getElementById("l1-c9").classList.add("quadrinho-l1");
+					document.getElementById("l2-c9").classList.remove("quadrinho");
+					document.getElementById("l2-c9").classList.add("quadrinho-l2");
+					document.getElementById("l3-c9").classList.remove("quadrinho");
+					document.getElementById("l3-c9").classList.add("quadrinho-l3");
+					document.getElementById("l4-c9").classList.remove("quadrinho");
+					document.getElementById("l4-c9").classList.add("quadrinho-l4");
+				}
+			}
+
+			function onl1c10Click(){
+				if (this.classList.contains("quadrinho-l1-right")){
+					document.getElementById("l1-c10").classList.remove("quadrinho-l1-right");
+					document.getElementById("l1-c10").classList.add("quadrinho");
+					document.getElementById("l2-c10").classList.remove("quadrinho-l2-right");
+					document.getElementById("l2-c10").classList.add("quadrinho");
+					document.getElementById("l3-c10").classList.remove("quadrinho-l3-right");
+					document.getElementById("l3-c10").classList.add("quadrinho");
+					document.getElementById("l4-c10").classList.remove("quadrinho-l4-right");
+					document.getElementById("l4-c10").classList.add("quadrinho");
+				} else {
+					document.getElementById("l1-c10").classList.remove("quadrinho");
+					document.getElementById("l1-c10").classList.add("quadrinho-l1-right");
+					document.getElementById("l2-c10").classList.remove("quadrinho");
+					document.getElementById("l2-c10").classList.add("quadrinho-l2-right");
+					document.getElementById("l3-c10").classList.remove("quadrinho");
+					document.getElementById("l3-c10").classList.add("quadrinho-l3-right");
+					document.getElementById("l4-c10").classList.remove("quadrinho");
+					document.getElementById("l4-c10").classList.add("quadrinho-l4-right");
+				}
+			}
+
+
+			function onl2c1Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c2Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c3Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c4Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c5Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c6Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c7Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c8Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c9Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl2c10Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c1Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c2Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c3Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c4Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c5Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c6Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c7Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c8Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c9Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl3c10Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c1Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c2Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c3Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c4Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c5Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c6Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c7Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c8Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c9Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+
+			function onl4c10Click(){
+				if (this.style.backgroundColor == "red"){
+					this.style.backgroundColor = "white";
+				} else {
+					this.style.backgroundColor = "red";
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

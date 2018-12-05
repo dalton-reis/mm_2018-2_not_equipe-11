@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+		<meta charset="utf-8">
+
+		<title>CalcÁrea</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<style>
+			html, body {
+			    overflow: hidden;
+			    margin: 0;
+			}
+
+			body {
+			    -webkit-perspective: 500;
+			    -moz-perspective: 500;
+			    perspective: 500;
+			}
+
+			.container{
+			    margin-top: 30px;
+			}
+
+			.container-calculo{
+				margin-top: 30px;
+			}
+
+			.container-calculo input{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+			}
+
+			.base{
+				margin-top: 15px;
+			}
+
+			.container-figuras{
+				margin-top: 30px;
+			}
+
+			.valor01{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+
+				/*position: absolute;*/
+
+			}
+
+			.valor02{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.retangulo{
+				background: #42d692; width: 700px; height: 350px;
+			}
+
+			.sinal_soma{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_subtrai{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_multiplica{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.sinal_divide{
+				border-style: solid;
+				border-width: 5px;
+				border-color: red;
+				margin-bottom: 5px;
+			}
+
+			.container-botao{
+				padding-top: 30px;
+			}
+
+			.altura{
+				margin-top: 150px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row text-center">
+				<div class="col">
+					<h4>Usando os elementos do retângulo como você montaria a equação que representa o cáculo da área?</h4>
+				</div>
+			</div>
+			<div class="container-figuras">
+				<div class="row text-center">
+					<div class="col-2">
+						<h3 class="altura">H</h3>
+					</div>
+					<div class="col-8">
+						<div id="retangulo" class="retangulo"></div>
+					</div>
+					<div class="col-2">
+					</div>
+				</div>
+				<div class="row text-center ">
+					<div class="col">
+						<h3 class="base">B</h3>
+					</div>
+				</div>
+			</div>
+			<div class="container-calculo">
+				<div class="row text-center">
+					<div class="col">
+						<h3>A =</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">
+					</div>
+					<div class="col-2">
+						<input id="variavel01" type="text">
+						<!-- <p class="text-center">Vari</p> -->
+					</div>
+					<div class="col-2">
+						<input id="variavel02" type="text">
+						<!-- <p class="text-center">Operação</p> -->
+					</div>
+					<div class="col-2">
+						<input id="variavel03" type="text">
+						<!-- <p class="text-center">Número 02</p> -->
+					</div>
+					<div class="col-3">
+					</div>
+				</div>
+			</div>
+			<div class="container-botao">
+				<div class="row text-center">
+					<div id="botao-proximo" class="col">
+						<button type="button" class="btn btn-success" onclick="goToNext()">Próxima página</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="./js/hammer.js" type="text/javascript"></script>
+
+		<script>
+
+			// var divBotaoProximo = document.getElementById("botao-proximo");
+			// var botao = '<button type="button" class="btn btn-success" onclick="goToNext()">Próxima página</button>';
+
+			function goToNext(){
+
+				var variavel01 = document.getElementById("variavel01").value;
+				var variavel02 = document.getElementById("variavel02").value;
+				var variavel03 = document.getElementById("variavel03").value;
+
+				if (variavel01 == "h" || variavel01 == "H") {
+					if (variavel02 == "*" || variavel02 == "x" || variavel02 == "X"){
+						if (variavel03 == "b" || variavel03 == "B"){
+							window.location.href = "./page08.html";
+						}
+					}
+				} else if (variavel01 == "b" || variavel01 == "B"){
+					if (variavel02 == "*" || variavel02 == x || variavel02 == "X"){
+						if (variavel03 == "h" || variavel03 == "H"){
+							window.location.href = "./page08.html";
+						}
+					}
+				}
+			}
+			
+			// var variavel01 = document.getElementById("variavel01");
+			// var variavel02 = document.getElementById("variavel02");
+			// var variavel02 = document.getElementById("variavel03");
+
+			// variavel01.addEventListener("change", changeVariavel01);
+			// variavel02.addEventListener("change", changeVariavel02);
+			// variavel03.addEventListener("change", changeVariavel03);
+
+			// function changeVariavel01(){
+			// 	console.log("entro");
+			// 	if (document.getElementById("variavel03").value == "h" || document.getElementById("variavel03").value == "b"){
+			// 		console.log("correto");
+			// 	}
+			// }
+
+			// function changeVariavel02(){
+
+			// }
+
+			// function changeVariavel03(){
+
+			// }
+
+		</script>
+
+	</body>
+
+</html>
