@@ -199,6 +199,31 @@
 					</div>
 				</div>
 			</div> -->
+			<div class="container-calculo">
+				<div class="row text-center">
+					<div class="col">
+						<h3>A =</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-2">
+					</div>
+					<div class="col-8">
+						<div class="row">
+							<div class="col-4">
+								<input id="variavel01" type="text">
+							</div>
+							<div class="col-4">
+								<input id="variavel02" type="text">
+							</div>
+							<div class="col-4">
+								<input id="variavel03" type="text">
+							</div>
+						</div>
+					</div>
+					<div class="col-2">
+				</div>
+			</div>
 			<div class="container-botao">
 				<div class="row text-center">
 					<div id="botao-proximo" class="col">
@@ -216,7 +241,13 @@
 			var botao = '<button type="button" class="btn btn-success" onclick="goToNext()">Próxima página</button>';
 
 			function goToNext(){
-				window.location.href = "./page03.html";
+				if (document.getElementById("variavel01").value == "4" &&
+				   (document.getElementById("variavel02").value == "X" || document.getElementById("variavel02").value == "x") &&
+				    document.getElementById("variavel03").value == "10"){
+					window.location.href = "./page08.html";
+				} else {
+					window.location.href = "./page03.html";
+				}
 			}
 
 			window.onload = function(){
@@ -227,36 +258,36 @@
 				divBotaoProximo.innerHTML += botao;
 			}
 			
-			var valor01 = document.getElementById("valor01");
-			var valor02 = document.getElementById("valor02");
+			// var valor01 = document.getElementById("valor01");
+			// var valor02 = document.getElementById("valor02");
 
-			var mcValor01 = new Hammer(valor01);
-			mcValor01.add(new Hammer.Pan({direction: Hammer.DIRECTION_ALL, threshold: 0}));
-			mcValor01.on("pan", handleDrag);
+			// var mcValor01 = new Hammer(valor01);
+			// mcValor01.add(new Hammer.Pan({direction: Hammer.DIRECTION_ALL, threshold: 0}));
+			// mcValor01.on("pan", handleDrag);
 
-			var lastPosX = 0;
-			var lastPosY = 0;
-			var isDragging = false;
+			// var lastPosX = 0;
+			// var lastPosY = 0;
+			// var isDragging = false;
 
-			function handleDrag(ev){
-				var elem = ev.target;
+			// function handleDrag(ev){
+			// 	var elem = ev.target;
 
-				if (!isDragging){
-					isDragging = true;
-					lastPosX = elem.offsetLeft;
-					lastPosY = elem.offsetTop;
-				}
+			// 	if (!isDragging){
+			// 		isDragging = true;
+			// 		lastPosX = elem.offsetLeft;
+			// 		lastPosY = elem.offsetTop;
+			// 	}
 
-				var posX = ev.deltaX + lastPosX;
-				var posY = ev.deltaY + lastPosY;
+			// 	var posX = ev.deltaX + lastPosX;
+			// 	var posY = ev.deltaY + lastPosY;
 
-				elem.style.left = posX + "px";
-				elem.style.top = posY + "px";
+			// 	elem.style.left = posX + "px";
+			// 	elem.style.top = posY + "px";
 
-				if (ev.isFinal){
-					isDragging = false;
-				}
-			}
+			// 	if (ev.isFinal){
+			// 		isDragging = false;
+			// 	}
+			// }
 
 		</script>
 

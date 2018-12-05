@@ -40,6 +40,10 @@
 			.quadrinho-selecionado{
 				background-color: red;
 			}
+
+			.container-botao{
+				padding-top: 50px;
+			}
 		</style>
 
 	</head>
@@ -105,6 +109,12 @@
 					<div id="l4-c10" class="col quadrinho"></div>
 				</div>
 			</div>
+			<div class="container-botao">
+				<div class="row text-center">
+					<div id="botao-proximo" class="col">
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -125,37 +135,64 @@
 			document.getElementById("l1-c10").addEventListener("click", onl1c10Click);
 
 			document.getElementById("l2-c1").addEventListener("click", onl2c1Click);
-			document.getElementById("l2-c2").addEventListener("click", onl2c2Click);
-			document.getElementById("l2-c3").addEventListener("click", onl2c3Click);
-			document.getElementById("l2-c4").addEventListener("click", onl2c4Click);
-			document.getElementById("l2-c5").addEventListener("click", onl2c5Click);
-			document.getElementById("l2-c6").addEventListener("click", onl2c6Click);
-			document.getElementById("l2-c7").addEventListener("click", onl2c7Click);
-			document.getElementById("l2-c8").addEventListener("click", onl2c8Click);
-			document.getElementById("l2-c9").addEventListener("click", onl2c9Click);
-			document.getElementById("l2-c10").addEventListener("click", onl2c10Click);
+			// document.getElementById("l2-c2").addEventListener("click", onl2c2Click);
+			// document.getElementById("l2-c3").addEventListener("click", onl2c3Click);
+			// document.getElementById("l2-c4").addEventListener("click", onl2c4Click);
+			// document.getElementById("l2-c5").addEventListener("click", onl2c5Click);
+			// document.getElementById("l2-c6").addEventListener("click", onl2c6Click);
+			// document.getElementById("l2-c7").addEventListener("click", onl2c7Click);
+			// document.getElementById("l2-c8").addEventListener("click", onl2c8Click);
+			// document.getElementById("l2-c9").addEventListener("click", onl2c9Click);
+			// document.getElementById("l2-c10").addEventListener("click", onl2c10Click);
 
 			document.getElementById("l3-c1").addEventListener("click", onl3c1Click);
-			document.getElementById("l3-c2").addEventListener("click", onl3c2Click);
-			document.getElementById("l3-c3").addEventListener("click", onl3c3Click);
-			document.getElementById("l3-c4").addEventListener("click", onl3c4Click);
-			document.getElementById("l3-c5").addEventListener("click", onl3c5Click);
-			document.getElementById("l3-c6").addEventListener("click", onl3c6Click);
-			document.getElementById("l3-c7").addEventListener("click", onl3c7Click);
-			document.getElementById("l3-c8").addEventListener("click", onl3c8Click);
-			document.getElementById("l3-c9").addEventListener("click", onl3c9Click);
-			document.getElementById("l3-c10").addEventListener("click", onl3c10Click);
+			// document.getElementById("l3-c2").addEventListener("click", onl3c2Click);
+			// document.getElementById("l3-c3").addEventListener("click", onl3c3Click);
+			// document.getElementById("l3-c4").addEventListener("click", onl3c4Click);
+			// document.getElementById("l3-c5").addEventListener("click", onl3c5Click);
+			// document.getElementById("l3-c6").addEventListener("click", onl3c6Click);
+			// document.getElementById("l3-c7").addEventListener("click", onl3c7Click);
+			// document.getElementById("l3-c8").addEventListener("click", onl3c8Click);
+			// document.getElementById("l3-c9").addEventListener("click", onl3c9Click);
+			// document.getElementById("l3-c10").addEventListener("click", onl3c10Click);
 
 			document.getElementById("l4-c1").addEventListener("click", onl4c1Click);
-			document.getElementById("l4-c2").addEventListener("click", onl4c2Click);
-			document.getElementById("l4-c3").addEventListener("click", onl4c3Click);
-			document.getElementById("l4-c4").addEventListener("click", onl4c4Click);
-			document.getElementById("l4-c5").addEventListener("click", onl4c5Click);
-			document.getElementById("l4-c6").addEventListener("click", onl4c6Click);
-			document.getElementById("l4-c7").addEventListener("click", onl4c7Click);
-			document.getElementById("l4-c8").addEventListener("click", onl4c8Click);
-			document.getElementById("l4-c9").addEventListener("click", onl4c9Click);
-			document.getElementById("l4-c10").addEventListener("click", onl4c10Click);
+			// document.getElementById("l4-c2").addEventListener("click", onl4c2Click);
+			// document.getElementById("l4-c3").addEventListener("click", onl4c3Click);
+			// document.getElementById("l4-c4").addEventListener("click", onl4c4Click);
+			// document.getElementById("l4-c5").addEventListener("click", onl4c5Click);
+			// document.getElementById("l4-c6").addEventListener("click", onl4c6Click);
+			// document.getElementById("l4-c7").addEventListener("click", onl4c7Click);
+			// document.getElementById("l4-c8").addEventListener("click", onl4c8Click);
+			// document.getElementById("l4-c9").addEventListener("click", onl4c9Click);
+			// document.getElementById("l4-c10").addEventListener("click", onl4c10Click);
+
+			var divBotaoProximo = document.getElementById("botao-proximo");
+			var botao = '<button type="button" class="btn btn-success" onclick="goToNext()">Próxima página</button>';
+
+			function goToNext(){
+				window.location.href = "./page09.html";
+			}
+
+			function check(){
+				if (document.getElementById("l1-c1").style.backgroundColor == "red" &&
+					document.getElementById("l1-c2").style.backgroundColor == "red" &&
+					document.getElementById("l1-c3").style.backgroundColor == "red" &&
+					document.getElementById("l1-c4").style.backgroundColor == "red" &&
+					document.getElementById("l1-c5").style.backgroundColor == "red" &&
+					document.getElementById("l1-c6").style.backgroundColor == "red" &&
+					document.getElementById("l1-c7").style.backgroundColor == "red" &&
+					document.getElementById("l1-c8").style.backgroundColor == "red" &&
+					document.getElementById("l1-c9").style.backgroundColor == "red" &&
+					document.getElementById("l1-c10").style.backgroundColor == "red" &&
+					document.getElementById("l2-c1").style.backgroundColor == "red" &&
+					document.getElementById("l3-c1").style.backgroundColor == "red" &&
+					document.getElementById("l4-c1").style.backgroundColor == "red"){
+					divBotaoProximo.innerHTML += botao;
+				} else {
+					divBotaoProximo.innerHTML = "";
+				}
+			}
 
 			function onl1c1Click(){
 				if (this.style.backgroundColor == "red"){
@@ -163,6 +200,7 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
 			function onl1c2Click(){
@@ -171,6 +209,7 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
 			function onl1c3Click(){
@@ -179,6 +218,7 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
 			function onl1c4Click(){
@@ -187,6 +227,7 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
 			function onl1c5Click(){
@@ -195,6 +236,7 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
 			function onl1c6Click(){
@@ -203,6 +245,7 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
 			function onl1c7Click(){
@@ -211,6 +254,7 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
 			function onl1c8Click(){
@@ -219,6 +263,7 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
 			function onl1c9Click(){
@@ -227,6 +272,7 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
 			function onl1c10Click(){
@@ -235,6 +281,7 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
 			function onl2c1Click(){
@@ -243,79 +290,80 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
-			function onl2c2Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl2c2Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl2c3Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl2c3Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl2c4Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl2c4Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl2c5Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl2c5Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl2c6Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl2c6Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl2c7Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl2c7Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl2c8Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl2c8Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl2c9Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl2c9Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl2c10Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl2c10Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
 
 			function onl3c1Click(){
@@ -324,79 +372,80 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
-			function onl3c2Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl3c2Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl3c3Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl3c3Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl3c4Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl3c4Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl3c5Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl3c5Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl3c6Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl3c6Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl3c7Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl3c7Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl3c8Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl3c8Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl3c9Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl3c9Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl3c10Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl3c10Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
 			function onl4c1Click(){
 				if (this.style.backgroundColor == "red"){
@@ -404,79 +453,80 @@
 				} else {
 					this.style.backgroundColor = "red";
 				}
+				check()
 			}
 
-			function onl4c2Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl4c2Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl4c3Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl4c3Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl4c4Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl4c4Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl4c5Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl4c5Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl4c6Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl4c6Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl4c7Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl4c7Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl4c8Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl4c8Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl4c9Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl4c9Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
-			function onl4c10Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
+			// function onl4c10Click(){
+			// 	if (this.style.backgroundColor == "red"){
+			// 		this.style.backgroundColor = "white";
+			// 	} else {
+			// 		this.style.backgroundColor = "red";
+			// 	}
+			// }
 
 		</script>
 

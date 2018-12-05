@@ -121,6 +121,18 @@
 			.quadrinho-selecionado{
 				background-color: red;
 			}
+
+			.container-botao{
+				padding-top: 50px;
+			}
+
+			.mensagem-sucesso{
+				color: green;
+			}
+
+			.container-mensagem{
+				padding-top: 15px;
+			}
 		</style>
 
 	</head>
@@ -194,6 +206,18 @@
 					<div id="l4-c10" class="col quadrinho"></div>
 				</div>
 			</div>
+			<div class="container-mensagem">
+				<div class="row text-center">
+					<div id="mensagem-sucesso" class="col">
+					</div>
+				</div>
+			</div>
+			<div class="container-botao">
+				<div class="row text-center">
+					<div id="botao-proximo" class="col">
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -213,46 +237,16 @@
 			document.getElementById("l1-c9").addEventListener("click", onl1c9Click);
 			document.getElementById("l1-c10").addEventListener("click", onl1c10Click);
 
-			document.getElementById("l2-c1").addEventListener("click", onl2c1Click);
-			document.getElementById("l2-c2").addEventListener("click", onl2c2Click);
-			document.getElementById("l2-c3").addEventListener("click", onl2c3Click);
-			document.getElementById("l2-c4").addEventListener("click", onl2c4Click);
-			document.getElementById("l2-c5").addEventListener("click", onl2c5Click);
-			document.getElementById("l2-c6").addEventListener("click", onl2c6Click);
-			document.getElementById("l2-c7").addEventListener("click", onl2c7Click);
-			document.getElementById("l2-c8").addEventListener("click", onl2c8Click);
-			document.getElementById("l2-c9").addEventListener("click", onl2c9Click);
-			document.getElementById("l2-c10").addEventListener("click", onl2c10Click);
-
-			document.getElementById("l3-c1").addEventListener("click", onl3c1Click);
-			document.getElementById("l3-c2").addEventListener("click", onl3c2Click);
-			document.getElementById("l3-c3").addEventListener("click", onl3c3Click);
-			document.getElementById("l3-c4").addEventListener("click", onl3c4Click);
-			document.getElementById("l3-c5").addEventListener("click", onl3c5Click);
-			document.getElementById("l3-c6").addEventListener("click", onl3c6Click);
-			document.getElementById("l3-c7").addEventListener("click", onl3c7Click);
-			document.getElementById("l3-c8").addEventListener("click", onl3c8Click);
-			document.getElementById("l3-c9").addEventListener("click", onl3c9Click);
-			document.getElementById("l3-c10").addEventListener("click", onl3c10Click);
-
-			document.getElementById("l4-c1").addEventListener("click", onl4c1Click);
-			document.getElementById("l4-c2").addEventListener("click", onl4c2Click);
-			document.getElementById("l4-c3").addEventListener("click", onl4c3Click);
-			document.getElementById("l4-c4").addEventListener("click", onl4c4Click);
-			document.getElementById("l4-c5").addEventListener("click", onl4c5Click);
-			document.getElementById("l4-c6").addEventListener("click", onl4c6Click);
-			document.getElementById("l4-c7").addEventListener("click", onl4c7Click);
-			document.getElementById("l4-c8").addEventListener("click", onl4c8Click);
-			document.getElementById("l4-c9").addEventListener("click", onl4c9Click);
-			document.getElementById("l4-c10").addEventListener("click", onl4c10Click);
-
 			var totalSelecionado = 0;
 
 			var divBotaoProximo = document.getElementById("botao-proximo");
 			var botao = '<button type="button" class="btn btn-success" onclick="goToNext()">Próxima página</button>';
 
+			var divMensagem = document.getElementById("mensagem-sucesso");
+			var mensagem = "<h3 class='mensagem-sucesso'>Você selecionou as 10 colunas</h3>"
+
 			function goToNext(){
-				window.location.href = "./page05.html";
+				window.location.href = "./page06.html";
 			}
 
 			function onl1c1Click(){
@@ -265,6 +259,7 @@
 					document.getElementById("l3-c1").classList.add("quadrinho");
 					document.getElementById("l4-c1").classList.remove("quadrinho-l4");
 					document.getElementById("l4-c1").classList.add("quadrinho");
+					totalSelecionado -= 1;
 				} else {
 					document.getElementById("l1-c1").classList.remove("quadrinho");
 					document.getElementById("l1-c1").classList.add("quadrinho-l1");
@@ -274,6 +269,15 @@
 					document.getElementById("l3-c1").classList.add("quadrinho-l3");
 					document.getElementById("l4-c1").classList.remove("quadrinho");
 					document.getElementById("l4-c1").classList.add("quadrinho-l4");
+					totalSelecionado += 1;
+				}
+
+				if (totalSelecionado == 10){
+					divMensagem.innerHTML += mensagem;
+					divBotaoProximo.innerHTML += botao;
+				} else {
+					divMensagem.innerHTML = "";
+					divBotaoProximo.innerHTML = "";
 				}
 			}
 
@@ -287,6 +291,7 @@
 					document.getElementById("l3-c2").classList.add("quadrinho");
 					document.getElementById("l4-c2").classList.remove("quadrinho-l4");
 					document.getElementById("l4-c2").classList.add("quadrinho");
+					totalSelecionado -= 1;
 				} else {
 					document.getElementById("l1-c2").classList.remove("quadrinho");
 					document.getElementById("l1-c2").classList.add("quadrinho-l1");
@@ -296,6 +301,15 @@
 					document.getElementById("l3-c2").classList.add("quadrinho-l3");
 					document.getElementById("l4-c2").classList.remove("quadrinho");
 					document.getElementById("l4-c2").classList.add("quadrinho-l4");
+					totalSelecionado += 1;
+				}
+
+				if (totalSelecionado == 10){
+					divMensagem.innerHTML += mensagem;
+					divBotaoProximo.innerHTML += botao;
+				} else {
+					divMensagem.innerHTML = "";
+					divBotaoProximo.innerHTML = "";
 				}
 			}
 
@@ -309,6 +323,7 @@
 					document.getElementById("l3-c3").classList.add("quadrinho");
 					document.getElementById("l4-c3").classList.remove("quadrinho-l4");
 					document.getElementById("l4-c3").classList.add("quadrinho");
+					totalSelecionado -= 1;
 				} else {
 					document.getElementById("l1-c3").classList.remove("quadrinho");
 					document.getElementById("l1-c3").classList.add("quadrinho-l1");
@@ -318,6 +333,15 @@
 					document.getElementById("l3-c3").classList.add("quadrinho-l3");
 					document.getElementById("l4-c3").classList.remove("quadrinho");
 					document.getElementById("l4-c3").classList.add("quadrinho-l4");
+					totalSelecionado += 1;
+				}
+
+				if (totalSelecionado == 10){
+					divMensagem.innerHTML += mensagem;
+					divBotaoProximo.innerHTML += botao;
+				} else {
+					divMensagem.innerHTML = "";
+					divBotaoProximo.innerHTML = "";
 				}
 			}
 
@@ -331,6 +355,7 @@
 					document.getElementById("l3-c4").classList.add("quadrinho");
 					document.getElementById("l4-c4").classList.remove("quadrinho-l4");
 					document.getElementById("l4-c4").classList.add("quadrinho");
+					totalSelecionado -= 1;
 				} else {
 					document.getElementById("l1-c4").classList.remove("quadrinho");
 					document.getElementById("l1-c4").classList.add("quadrinho-l1");
@@ -340,6 +365,15 @@
 					document.getElementById("l3-c4").classList.add("quadrinho-l3");
 					document.getElementById("l4-c4").classList.remove("quadrinho");
 					document.getElementById("l4-c4").classList.add("quadrinho-l4");
+					totalSelecionado += 1;
+				}
+
+				if (totalSelecionado == 10){
+					divMensagem.innerHTML += mensagem;
+					divBotaoProximo.innerHTML += botao;
+				} else {
+					divMensagem.innerHTML = "";
+					divBotaoProximo.innerHTML = "";
 				}
 			}
 
@@ -353,6 +387,7 @@
 					document.getElementById("l3-c5").classList.add("quadrinho");
 					document.getElementById("l4-c5").classList.remove("quadrinho-l4");
 					document.getElementById("l4-c5").classList.add("quadrinho");
+					totalSelecionado -= 1;
 				} else {
 					document.getElementById("l1-c5").classList.remove("quadrinho");
 					document.getElementById("l1-c5").classList.add("quadrinho-l1");
@@ -362,6 +397,15 @@
 					document.getElementById("l3-c5").classList.add("quadrinho-l3");
 					document.getElementById("l4-c5").classList.remove("quadrinho");
 					document.getElementById("l4-c5").classList.add("quadrinho-l4");
+					totalSelecionado += 1;
+				}
+
+				if (totalSelecionado == 10){
+					divMensagem.innerHTML += mensagem;
+					divBotaoProximo.innerHTML += botao;
+				} else {
+					divMensagem.innerHTML = "";
+					divBotaoProximo.innerHTML = "";
 				}
 			}
 
@@ -375,6 +419,7 @@
 					document.getElementById("l3-c6").classList.add("quadrinho");
 					document.getElementById("l4-c6").classList.remove("quadrinho-l4");
 					document.getElementById("l4-c6").classList.add("quadrinho");
+					totalSelecionado -= 1;
 				} else {
 					document.getElementById("l1-c6").classList.remove("quadrinho");
 					document.getElementById("l1-c6").classList.add("quadrinho-l1");
@@ -384,6 +429,15 @@
 					document.getElementById("l3-c6").classList.add("quadrinho-l3");
 					document.getElementById("l4-c6").classList.remove("quadrinho");
 					document.getElementById("l4-c6").classList.add("quadrinho-l4");
+					totalSelecionado += 1;
+				}
+
+				if (totalSelecionado == 10){
+					divMensagem.innerHTML += mensagem;
+					divBotaoProximo.innerHTML += botao;
+				} else {
+					divMensagem.innerHTML = "";
+					divBotaoProximo.innerHTML = "";
 				}
 			}
 
@@ -397,6 +451,7 @@
 					document.getElementById("l3-c7").classList.add("quadrinho");
 					document.getElementById("l4-c7").classList.remove("quadrinho-l4");
 					document.getElementById("l4-c7").classList.add("quadrinho");
+					totalSelecionado -= 1;
 				} else {
 					document.getElementById("l1-c7").classList.remove("quadrinho");
 					document.getElementById("l1-c7").classList.add("quadrinho-l1");
@@ -406,6 +461,15 @@
 					document.getElementById("l3-c7").classList.add("quadrinho-l3");
 					document.getElementById("l4-c7").classList.remove("quadrinho");
 					document.getElementById("l4-c7").classList.add("quadrinho-l4");
+					totalSelecionado += 1;
+				}
+
+				if (totalSelecionado == 10){
+					divMensagem.innerHTML += mensagem;
+					divBotaoProximo.innerHTML += botao;
+				} else {
+					divMensagem.innerHTML = "";
+					divBotaoProximo.innerHTML = "";
 				}
 			}
 
@@ -419,6 +483,7 @@
 					document.getElementById("l3-c8").classList.add("quadrinho");
 					document.getElementById("l4-c8").classList.remove("quadrinho-l4");
 					document.getElementById("l4-c8").classList.add("quadrinho");
+					totalSelecionado -= 1;
 				} else {
 					document.getElementById("l1-c8").classList.remove("quadrinho");
 					document.getElementById("l1-c8").classList.add("quadrinho-l1");
@@ -428,6 +493,15 @@
 					document.getElementById("l3-c8").classList.add("quadrinho-l3");
 					document.getElementById("l4-c8").classList.remove("quadrinho");
 					document.getElementById("l4-c8").classList.add("quadrinho-l4");
+					totalSelecionado += 1;
+				}
+
+				if (totalSelecionado == 10){
+					divMensagem.innerHTML += mensagem;
+					divBotaoProximo.innerHTML += botao;
+				} else {
+					divMensagem.innerHTML = "";
+					divBotaoProximo.innerHTML = "";
 				}
 			}
 
@@ -441,6 +515,7 @@
 					document.getElementById("l3-c9").classList.add("quadrinho");
 					document.getElementById("l4-c9").classList.remove("quadrinho-l4");
 					document.getElementById("l4-c9").classList.add("quadrinho");
+					totalSelecionado -= 1;
 				} else {
 					document.getElementById("l1-c9").classList.remove("quadrinho");
 					document.getElementById("l1-c9").classList.add("quadrinho-l1");
@@ -450,6 +525,15 @@
 					document.getElementById("l3-c9").classList.add("quadrinho-l3");
 					document.getElementById("l4-c9").classList.remove("quadrinho");
 					document.getElementById("l4-c9").classList.add("quadrinho-l4");
+					totalSelecionado += 1;
+				}
+
+				if (totalSelecionado == 10){
+					divMensagem.innerHTML += mensagem;
+					divBotaoProximo.innerHTML += botao;
+				} else {
+					divMensagem.innerHTML = "";
+					divBotaoProximo.innerHTML = "";
 				}
 			}
 
@@ -463,6 +547,7 @@
 					document.getElementById("l3-c10").classList.add("quadrinho");
 					document.getElementById("l4-c10").classList.remove("quadrinho-l4-right");
 					document.getElementById("l4-c10").classList.add("quadrinho");
+					totalSelecionado -= 1;
 				} else {
 					document.getElementById("l1-c10").classList.remove("quadrinho");
 					document.getElementById("l1-c10").classList.add("quadrinho-l1-right");
@@ -472,247 +557,15 @@
 					document.getElementById("l3-c10").classList.add("quadrinho-l3-right");
 					document.getElementById("l4-c10").classList.remove("quadrinho");
 					document.getElementById("l4-c10").classList.add("quadrinho-l4-right");
+					totalSelecionado += 1;
 				}
-			}
 
-
-			function onl2c1Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
+				if (totalSelecionado == 10){
+					divMensagem.innerHTML += mensagem;
+					divBotaoProximo.innerHTML += botao;
 				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl2c2Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl2c3Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl2c4Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl2c5Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl2c6Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl2c7Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl2c8Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl2c9Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl2c10Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c1Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c2Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c3Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c4Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c5Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c6Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c7Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c8Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c9Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl3c10Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c1Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c2Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c3Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c4Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c5Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c6Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c7Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c8Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c9Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
-				}
-			}
-
-			function onl4c10Click(){
-				if (this.style.backgroundColor == "red"){
-					this.style.backgroundColor = "white";
-				} else {
-					this.style.backgroundColor = "red";
+					divMensagem.innerHTML = "";
+					divBotaoProximo.innerHTML = "";
 				}
 			}
 		</script>
