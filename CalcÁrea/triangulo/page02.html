@@ -143,8 +143,8 @@
 					<div class="col-2">
 						<!--<h1>Teste</h1>-->
 						<div class="row">
-							<div id="blocoSoma" class="col">
-								<h3 class="barras">+</h3>
+							<div id="blocoDivide" class="col">
+								<h3 class="barras">/</h3>
 							</div>
 						</div>
 						<div class="row">
@@ -157,9 +157,9 @@
 								<h3 class="barras">X</h3>
 							</div>
 						</div>
-						<div id="blocoDivide" class="row">
+						<div id="blocoSoma" class="row">
 							<div class="col">
-								<h3 class="barras">/</h3>
+								<h3 class="barras">+</h3>
 							</div>
 						</div>
 					</div>
@@ -172,8 +172,6 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-3">
-					</div>
 					<div class="col-2" style="z-index:-1;">
 						<input id="numero1" style="height:70px" type="text">
 						<p class="text-center">Símbolo 1</p>
@@ -187,7 +185,15 @@
 						<p class="text-center">Símbolo 02</p>
 					</div>
                  
-					
+					<div class="col-2" style="z-index: -1">
+						<input id="operacao2" style="height:70px" type="text">
+						<p class="text-center">Operacap 02</p>
+					</div>
+					<div class="col-2" style="z-index: -1">
+								<input id="variavel03" onchange="validarFormula()" type="text">
+						
+						<p class="text-center">Número</p>
+					</div>
 				</div>
 			</div>
 
@@ -246,18 +252,26 @@
 				var base = document.getElementById("blocoBase");
 				var multi = document.getElementById("blocoMultiplica");
 				var altura = document.getElementById("blocoAltura");
+				var divide = document.getElementById("blocoDivide");
+				var variavel = document.getElementById("variavel03");
 
-				if((parseInt(base.style.left) >= 290 &&  parseInt(base.style.left) <= 319) && 
+
+				if((parseInt(base.style.left) >= 0 &&  parseInt(base.style.left) <= 20) && 
 					(parseInt(base.style.top) >= 285 &&  parseInt(base.style.top) <= 320)){
-					if((parseInt(multi.style.left) >= -475 &&  parseInt(multi.style.left) <= -420) && 
+					if((parseInt(multi.style.left) >= -760 &&  parseInt(multi.style.left) <= -740) && 
 						(parseInt(multi.style.top) >= 190 &&  parseInt(multi.style.top) <= 215)){
-						if((parseInt(altura.style.left) >= 665 &&  parseInt(altura.style.left) <= 690) && 
+						if((parseInt(altura.style.left) >= 370 &&  parseInt(altura.style.left) <= 410) && 
 							(parseInt(altura.style.top) >= 240 &&  parseInt(altura.style.top) <= 265)){
+							if((parseInt(divide.style.left) >= -390 &&  parseInt(divide.style.left) <= -330) && 
+								(parseInt(divide.style.top) >= 280 &&  parseInt(divide.style.top) <= 310)){
+								if(variavel.value == "2"){
 								console.log("Fórmula correta!");
 								divMensagem.innerHTML = "";
 								divMensagem.innerHTML += mensagemSucessoFormula;
 								divBotaoProximo.innerHTML = "";
 								divBotaoProximo.innerHTML += botao;
+								}
+							}
 						}
 					}						
 				}				
@@ -334,6 +348,11 @@
 					var lastPosX = 0;
 					var lastPosY = 0;
 					var isDragging = false
+
+					function digitouNumero(){
+						validarFormula();
+
+					}
 
 					function handleDrag(ev) {
 					  var elem = ev.target;

@@ -136,8 +136,8 @@
 					<div class="col-2">
                         <!--<h1>Teste</h1>-->
                         <div class="row text-center">
-                            <div id="blocoSoma"   class="col">
-                                <h3 class="barras">+</h3>
+                            <div id="blocoDivide"   class="col">
+                                <h3 class="barras">/</h3>
                             </div>
                         </div>
                         <div class="row">
@@ -151,8 +151,8 @@
                             </div>
                         </div>
                         <div  class="row">
-                            <div id="blocoDivide" class="col">
-                                <h3 class="barras">/</h3>
+                            <div id="blocoSoma" class="col">
+                                <h3 class="barras">+</h3>
                             </div>
                         </div>
                     </div>
@@ -165,8 +165,6 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-3">
-                        </div>
                         <div class="col-2" style="z-index:-1;">
                             <input id="numero1" style="height:70px" type="text">
                             <p class="text-center">Símbolo 1</p>
@@ -180,7 +178,15 @@
                             <p class="text-center">Símbolo 02</p>
                         </div>
                      
-                        
+                        <div class="col-2" style="z-index: -1">
+						<input id="operacao2" style="height:70px" type="text">
+						<p class="text-center">Operacap 02</p>
+					</div>
+					<div class="col-2" style="z-index: -1">
+								<input id="variavel03" onchange="validarFormula()" type="text">
+						
+						<p class="text-center">Número</p>
+					</div>
                     </div>
                 </div>
             <div class="container-mensagem">
@@ -209,26 +215,36 @@
 			function goToNextFigura(){
 				window.location.href = "../losango/page01.html";
 			}
-            function validarFormula(){
+        
+			function validarFormula(){
 				var base = document.getElementById("blocoBase");
 				var multi = document.getElementById("blocoMultiplica");
 				var altura = document.getElementById("blocoAltura");
-				if((parseInt(base.style.left) >= 288 &&  parseInt(base.style.left) <= 315) && 
-					(parseInt(base.style.top) >= 400 &&  parseInt(base.style.top) <= 430)){
-					if((parseInt(multi.style.left) >= -475 &&  parseInt(multi.style.left) <= -460) && 
-						(parseInt(multi.style.top) >= 290 &&  parseInt(multi.style.top) <= 370)){
-						if((parseInt(altura.style.left) >= 670 &&  parseInt(altura.style.left) <= 695) && 
+				var divide = document.getElementById("blocoDivide");
+				var variavel = document.getElementById("variavel03");
+
+
+				if((parseInt(base.style.left) >= 0 &&  parseInt(base.style.left) <= 20) && 
+					(parseInt(base.style.top) >= 390 &&  parseInt(base.style.top) <= 420)){
+					if((parseInt(multi.style.left) >= -760 &&  parseInt(multi.style.left) <= -730) && 
+						(parseInt(multi.style.top) >= 290 &&  parseInt(multi.style.top) <= 320)){
+						if((parseInt(altura.style.left) >= 370 &&  parseInt(altura.style.left) <= 410) && 
 							(parseInt(altura.style.top) >= 350 &&  parseInt(altura.style.top) <= 380)){
+							if((parseInt(divide.style.left) >= -390 &&  parseInt(divide.style.left) <= -330) && 
+								(parseInt(divide.style.top) >= 390 &&  parseInt(divide.style.top) <= 430)){
+								if(variavel.value == "2"){
 								console.log("Fórmula correta!");
 								divMensagem.innerHTML = "";
 								divMensagem.innerHTML += mensagemSucesso;
 								divBotaoProximo.innerHTML = "";
 								divBotaoProximo.innerHTML += botao;
+								}
+							}
 						}
 					}						
-				}	
-							
-            }
+				}				
+
+			}
 
 			function montarTriangulos() {
 		         	canvas = document.getElementById("triangulos");
